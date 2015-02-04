@@ -1,0 +1,36 @@
+{
+  "name": "nickfan/mosms",
+  "description": "mosms container",
+  "homepage": "https://github.com/nickfan/mosms",
+  "license": "MIT",
+  "repositories" : [
+    {"type": "composer", "url": "http://pkg.phpcomposer.com/repo/packagist/"},
+    {"packagist": false}
+  ],
+  "authors": [
+    {
+      "name": "nickfan",
+      "email": "nickfan81@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0",
+    "fergusean/nusoap": "0.9.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Nickfan\\MoSms\\": "src/"
+    },
+    "classmap": [
+
+    ],
+    "files": [
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}
