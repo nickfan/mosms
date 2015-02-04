@@ -85,7 +85,7 @@ class MoClient {
         /**
          * 初始化 webservice 客户端
          */
-        $this->soap = new nusoap_client($url,false);
+        $this->soap = new \nusoap_client($url,false);
         $this->soap->soap_defencoding = $this->outgoingEncoding;
         $this->soap->decode_utf8 = false;
 
