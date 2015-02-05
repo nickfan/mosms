@@ -43,6 +43,17 @@ class MoSmsServiceProvider extends ServiceProvider {
 			$loader->alias('MoSms', 'Nickfan\MoSms\Facades\MoSms');
 		});
 	}
+	public function registerMoClient() {
+		$this->app->singleton('moclient',function($app){
+			$settings = $this->app['config']->get('mosms::gateway');
+			return new \Nickfan\MoSms\MoClient($settings['gwUrl'],$settings['userId'],$settings['password'],$settings['pszSubPort']);
+		});
+		// Shortcut so developers don't need to add an Alias in app/config/app.php
+		$this->app->booting(function() {
+			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+			$loader->alias('MoClient', 'Nickfan\MoSms\Facades\MoClient');
+		});
+	}
 
 	/**
 	 * Get the services provided by the provider.
@@ -53,6 +64,7 @@ class MoSmsServiceProvider extends ServiceProvider {
 	{
 		return array(
 			'mosms',
+			'moclient',
 			);
 	}
 
